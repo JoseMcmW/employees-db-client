@@ -31,55 +31,77 @@ function App() {
 
   return (
     <div className="App">
-      <div className="information">
-        <label>Name:</label>
-        <input 
-          type="text" 
-          onChange={(event) => {
-            setName(event.target.value);
-          }}/>
-        <label>Age:</label>
-        <input 
-          type="number"
-          onChange={(event) => {
-            setAge(event.target.value);
-          }}/>
-        <label>Country:</label>
-        <input 
-          type="text"
-          onChange={(event) => {
-            setCountry(event.target.value);
-          }}/>
-        <label>Position:</label>
-        <input 
-          type="text"
-          onChange={(event) => {
-            setPosition(event.target.value);
-          }}/>
-        <label>Wage (year):</label>
-        <input 
-          type="number"
-          onChange={(event) => {
-            setWage(event.target.value);
-          }}/>
-        <button onClick={addEmployee}>Add employee</button>
-      </div>
-      <hr className='divisor'></hr>
-      <div className='employees'>
-        <button onClick={getEmployees}>Show Employees</button>
 
-        {employeeList.map((val, key) => {
-          return (
-            <div className='employee'>
-              <h3>Name: {val.name}</h3>
-              <h3>Age: {val.age}</h3>
-              <h3>Country: {val.country}</h3>
-              <h3>Position: {val.position}</h3>
-              <h3>Wage: {val.wage}</h3>
-            </div>
-            )
-        })}
+      <h1>Data Base Employee</h1>
 
+      <div className='boxes'>
+
+        <div className="information">
+          <h2>Add employee:</h2>
+          <label>Name:</label>
+          <input 
+            type="text" 
+            onChange={(event) => {
+              setName(event.target.value);
+            }}/>
+          <label>Age:</label>
+          <input 
+            type="number"
+            onChange={(event) => {
+              setAge(event.target.value);
+            }}/>
+          <label>Country:</label>
+          <input 
+            type="text"
+            onChange={(event) => {
+              setCountry(event.target.value);
+            }}/>
+          <label>Position:</label>
+          <input 
+            type="text"
+            onChange={(event) => {
+              setPosition(event.target.value);
+            }}/>
+          <label>Wage (year):</label>
+          <input 
+            type="number"
+            onChange={(event) => {
+              setWage(event.target.value);
+            }}/>
+          <button className="addEmploy" onClick={addEmployee}>Add employee</button>
+        </div>
+
+        <div className='employees'>
+          <h2>Show Employees</h2>
+          <button onClick={getEmployees}>Show Employees</button>
+            
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Wage</th>
+                </tr>
+              </thead>
+              <tbody>
+                    {employeeList.map((val, key) => {
+                  return (
+                      <tr>
+                        <td>{val.name}</td>
+                        <td>{val.age}</td>
+                        <td>{val.country}</td>
+                        <td>{val.position}</td>
+                        <td>{val.wage}</td>
+                      </tr>
+                    )
+                })}
+              </tbody>
+            </table>
+
+
+        </div>
       </div>
     </div>
   );
