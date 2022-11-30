@@ -19,7 +19,14 @@ function App() {
       position: position,
       wage: wage
     }).then(() => {
-      console.log("Success")
+      setEmployeeList([...employeeList, 
+        {
+        name: name,
+        age: age,
+        country: country,
+        position: position,
+        wage: wage
+      }])
     });
   }
 
@@ -83,6 +90,8 @@ function App() {
                   <th scope="col">Country</th>
                   <th scope="col">Position</th>
                   <th scope="col">Wage</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -94,6 +103,8 @@ function App() {
                         <td>{val.country}</td>
                         <td>{val.position}</td>
                         <td>{val.wage}</td>
+                        <td><button>Edit</button></td>
+                        <td><button>Delete</button></td>
                       </tr>
                     )
                 })}
